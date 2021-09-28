@@ -1,1 +1,11 @@
 <p>produit works!</p>
+<p>Nom : {{nom}}</p>
+<p *ngIf="note">Note : <span>{{note}}</span></p>
+
+<article *ngFor="let unProduit of produits">
+    <p>Nom : {{unProduit.nom}}</p>
+    <p>id : {{unProduit.id}}</p>
+    <p *ngIf="unProduit.description">Description : {{unProduit.description}}</p>
+    <p>Description : {{unProduit?.description}}</p>
+</article>
+
