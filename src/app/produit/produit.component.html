@@ -1,23 +1,3 @@
-<p>produit works!</p>
-<p>Nom : {{nom}}</p>
-<p *ngIf="note">Note : <span>{{note}}</span></p>
-<button (click)="baisserPrixSeuil()">Baisser le prix seuil</button>
-<button (click)="hausserPrixSeuil()">Hausser le prix seuil</button>
-<button (click)="fixerLePrix(0,5)">Prix 1 (0-5)</button>
-<button (click)="fixerLePrix(5, 10)">Prix 2 (5-10)</button>
-<button (click)="fixerLePrix(10, null)">Prix 3 (>10)</button>
-<p>Min : {{prixMin}}</p><p>Max : {{prixMax}}</p>
-<p>Prix seuil ({{prixSeuil}}) </p><input [(ngModel)]="prixSeuil" />
+<p>Tous editable ? <input type="checkbox" [(ngModel)]="estGlobalEditable"></p>
 
-<article *ngFor="let unProduit of produits">
-    <p>Nom : {{unProduit.nom}}</p>
-    <p>id : {{unProduit.id}}</p>
-    <p *ngIf="unProduit.description">Description : {{unProduit.description}}</p>
-    <p>Description : {{unProduit?.description}}</p>
-    <p>Prix : {{unProduit.prix}} 
-        <span class="basPrix" *ngIf="valideAubaine(unProduit); else prixTropCher">Aubaine</span>
-    </p>
-</article>
-
-<ng-template #prixTropCher><span class="hautPrix">Trop cher</span></ng-template>
-
+<app-details-produit *ngFor="let unProduit of produits" [produit]="unProduit" [estEditable]="estGlobalEditable"></app-details-produit>

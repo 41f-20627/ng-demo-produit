@@ -15,6 +15,8 @@ export class ProduitComponent implements OnInit {
   prixMin:number = 0;
   prixMax:number;
 
+  estGlobalEditable:boolean = false;
+  
   constructor() { 
     //this.produits = [];
     this.note = 34;

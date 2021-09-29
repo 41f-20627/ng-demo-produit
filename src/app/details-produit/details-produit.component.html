@@ -1,1 +1,17 @@
-<p>details-produit works!</p>
+<p>Ceci est un produit {{produit | json}}</p>
+<!--<p>Ceci est un produit {{produit.nom | uppercase}}</p> -->
+<button (click)="changeEditable()">Change éditable</button>
+Editable ? <input type="checkbox" [(ngModel)]="estEditable">
+<article *ngIf="estEditable; else nonEditable">
+    <p>Nom : <input [(ngModel)]="produit.nom"></p>
+    <p>Prix : <input [(ngModel)]="produit.prix"></p>
+    <p>Description : <input [(ngModel)]="produit.description"></p>
+</article>
+
+<ng-template #nonEditable>
+    <article>
+        <p>Nom : {{produit?.nom}}</p>
+        <p>Prix : {{produit?.prix}}</p>
+        <p>Description : {{produit?.description}}</p>
+    </article>
+</ng-template>

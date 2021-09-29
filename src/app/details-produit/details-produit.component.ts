@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-details-produit',
@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./details-produit.component.scss']
 })
 export class DetailsProduitComponent implements OnInit {
+  @Input() produit:any;
+
+  @Input() estEditable:boolean = true;
 
   constructor() { }
+  
 
   ngOnInit(): void {
   }
-
+  changeEditable():void{
+    this.estEditable = !this.estEditable;
+  }
 }
