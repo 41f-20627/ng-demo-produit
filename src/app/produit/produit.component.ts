@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { IListeProduit } from '../iliste-produit';
+import { IProduit } from '../iproduit';
+import { ProduitServService } from '../produit-serv.service';
 
 
 @Component({
@@ -7,7 +10,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./produit.component.scss']
 })
 export class ProduitComponent implements OnInit {
-  produits:any[];
+  produits:IProduit[];
+  //listeProduit:IListeProduit;
 
   nom:string = "Toto le magicien";
   note:number;
@@ -17,7 +21,7 @@ export class ProduitComponent implements OnInit {
 
   estGlobalEditable:boolean = false;
   
-  constructor() { 
+  constructor(private servProduit:ProduitServService) { 
     //this.produits = [];
     this.note = 34;
     
@@ -26,6 +30,7 @@ export class ProduitComponent implements OnInit {
   ngOnInit(): void {
     this.chargerProduit(); 
     this.produits[2].description = "Lorem ipsum"; 
+    this.servProduit.getListeProduit().subscribe(bieres => this.produits = bieres.data);
   }
   
   valideAubaine(unProduit:any):boolean{
@@ -55,7 +60,10 @@ export class ProduitComponent implements OnInit {
   chargerProduit(){
     //this.produits = [...Array(10)].map((element, index) => {return {"id" : index , "nom" : ("test "+ index)}});
     this.produits = [...Array(10)].map(function(element, index) {
-                                        return {"id" : index , "nom" : ("test "+ index), prix: index*2}
+                                        return {"id_biere" : index , 
+                                                "nom" : ("test "+ index), 
+                                                "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu nisl cursus, luctus nulla eu, cursus augue. Curabitur in nulla id nulla porttitor ullamcorper at posuere urna. Donec ut malesuada velit, a vulputate risus. Morbi in magna accumsan felis auctor pellentesque. Etiam malesuada justo magna, a pretium libero semper vel. Duis scelerisque lectus ut faucibus consectetur. Quisque eget imperdiet felis. Vivamus nulla tellus, auctor eget lobortis vel, scelerisque sit amet lectus.",
+                                                "brasserie" : "brasserie " + index}
                                       });
     console.log(this.produits);
     

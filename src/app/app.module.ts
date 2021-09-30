@@ -11,6 +11,8 @@ import { EnteteComponent } from './entete/entete.component';
 import { NonTrouveComponent } from './non-trouve/non-trouve.component';
 import { AuthService } from './auth/auth.service';
 import { LoginComponent } from './login/login.component';
+import { ProduitServService } from './produit-serv.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -28,8 +30,9 @@ import { LoginComponent } from './login/login.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
   ],
-  providers: [AuthService],
+  providers: [AuthService, ProduitServService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

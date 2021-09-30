@@ -7,12 +7,12 @@ import { AuthService } from '../auth/auth.service';
   styleUrls: ['./entete.component.scss']
 })
 export class EnteteComponent implements OnInit {
-  estConnecte:boolean = false;
+  estConnecte:boolean;
 
   constructor(private authService:AuthService) { }
 
   ngOnInit(): void {
-    
+    this.estConnecte = this.authService.log;
   }
  
   changement():void{
