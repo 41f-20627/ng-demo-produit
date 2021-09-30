@@ -2,6 +2,7 @@
 <!--<p>Ceci est un produit {{produit.nom | uppercase}}</p> -->
 <button (click)="changeEditable()">Change éditable</button>
 Editable ? <input type="checkbox" [(ngModel)]="estEditable">
+
 <article *ngIf="estEditable; else nonEditable">
     <p>Nom : <input [(ngModel)]="produit.nom"></p>
     <p>Prix : <input [(ngModel)]="produit.prix"></p>

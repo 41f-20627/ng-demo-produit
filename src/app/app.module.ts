@@ -9,6 +9,9 @@ import { ProduitComponent } from './produit/produit.component';
 import { DetailsProduitComponent } from './details-produit/details-produit.component';
 import { EnteteComponent } from './entete/entete.component';
 import { NonTrouveComponent } from './non-trouve/non-trouve.component';
+import { AuthService } from './auth/auth.service';
+import { LoginComponent } from './login/login.component';
+
 
 
 @NgModule({
@@ -19,13 +22,14 @@ import { NonTrouveComponent } from './non-trouve/non-trouve.component';
     DetailsProduitComponent,
     EnteteComponent,
     NonTrouveComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

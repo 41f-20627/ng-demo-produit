@@ -3,5 +3,11 @@
         <a routerLink = "/">Accueil</a>
         <a routerLink = "/produit">Liste des produits</a>
     </nav>
+    <section>
+        Se connecter : <input type="checkbox" [(ngModel)]="estConnecte" (change)="changement()">
+        <button>Se déconnecter (ne fonctionne pas)</button>
+        <button>Se connecter (ne fonctionne pas)</button>
+    </section>
+
 
 </header>
